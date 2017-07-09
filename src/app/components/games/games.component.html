@@ -1,0 +1,51 @@
+<h2>Games</h2>
+<p>
+    <a class="btn btn-success" [routerLink]="['/add-game']">Create New</a>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Home Team
+      </th>
+      <th>
+        Away Team
+      </th>
+      <th>
+        Date
+      </th>
+      <th>
+        Time
+      </th>
+      <th>
+        Details
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let game of games">
+      <td>
+        {{game.hometeam.name}}
+      </td>
+      <td>
+        {{game.awayteam.name}}
+      </td>
+      <td>
+        {{game.date}}
+      </td>
+      <td>
+        {{game.time}}
+      </td>
+      <td>
+        {{game.details}}
+      </td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/edit-game/'+game.$key]" >Edit</a>
+        <a class="btn btn-warning" [routerLink]="['/game/'+game.$key]" >Details</a>
+        <a class="btn btn-warning" [routerLink]="['/gameavailability/'+game.$key]" >Availability</a>
+        <a (click)="onDeleteClick(game.$key)" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,18 @@
+<div *ngIf="game">
+  <a [routerLink]="['/games']">Go Back</a>
+  <br>
+  <h2 class="page-header">{{game.hometeam.name}} <small>{{game.awayteam.name}}</small></h2>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Home Team: {{game.hometeam.name}}</li>
+        <li class="list-group-item">Away Team: {{game.awayteam.name}}</li>
+        <li class="list-group-item">Date: {{game.date}}</li>
+        <li class="list-group-item">Time: {{game.time}}</li>
+        <li class="list-group-item">Details: {{game.details}}</li>
+      </ul>
+    </div>
+    <a class="btn btn-default" [routerLink]="['/edit-game/'+game.$key]" >Edit</a>
+    <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<a [routerLink]="['/teams']">Back</a>
+<br>
+<h2 class="page-header">Add Team</h2>
+<form (submit)="onAddSubmit()">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" type="text" [(ngModel)]="name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label>Address</label>
+    <input class="form-control" type="text" [(ngModel)]="address" name="address" required>
+  </div>
+  <div class="form-group">
+    <label>City</label>
+    <input class="form-control" type="text" [(ngModel)]="city" name="city" required>
+  </div>
+  <div class="form-group">
+    <label>Postal Code</label>
+    <input class="form-control" type="text" [(ngModel)]="postalcode" name="postalcode" required>
+  </div>
+  <input type="submit" value="submit" class="btn btn-success">
+</form>

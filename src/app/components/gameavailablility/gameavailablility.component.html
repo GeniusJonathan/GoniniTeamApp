@@ -1,0 +1,39 @@
+<div *ngIf="game">
+  <a [routerLink]="['/games']">Go Back</a>
+  <h2>Game Availabiltiy</h2>
+  <p>
+    <a class="btn btn-success" [routerLink]="['/add-game']">Create New</a>
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Game
+        </th>
+        <th>
+          Player
+        </th>
+        <th>
+          Available
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of game.playeravailability">
+        <td>
+          {{game.date}}: {{game.hometeam.name}} - {{game.awayteam.name}}
+        </td>
+        <td>
+          {{player.player.firstname}} {{player.player.lastname}}
+        </td>
+        <td>
+          {{player.available}}
+        </td>
+        <td>
+          <a class="btn btn-primary" [routerLink]="['/edit-gameavailability/', game.$key, player.id]">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

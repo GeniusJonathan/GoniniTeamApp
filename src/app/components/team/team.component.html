@@ -1,0 +1,17 @@
+<div *ngIf="team">
+  <a [routerLink]="['/teams']">Go Back</a>
+  <br>
+  <h2 class="page-header">{{team.name}} <small>details</small></h2>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Name: {{team.name}}</li>
+        <li class="list-group-item">Address: {{team.address}}</li>
+        <li class="list-group-item">City: {{team.city}}</li>
+        <li class="list-group-item">Postal Code: {{team.postalcode}}</li>
+      </ul>
+    </div>
+    <a class="btn btn-default" [routerLink]="['/edit-team/'+team.$key]" >Edit</a>
+    <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
+  </div>
+</div>
