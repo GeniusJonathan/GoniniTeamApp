@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AddPlayerComponent implements OnInit {
   firstname: any;
-  lastname: any;
+  lastname: any = "";
 
   constructor(
     private firebaseService: FirebaseService,

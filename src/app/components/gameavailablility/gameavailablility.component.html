@@ -28,10 +28,10 @@
           {{player.player.firstname}} {{player.player.lastname}}
         </td>
         <td>
-          {{player.available}}
+          <input class="form-control" type="checkbox" [(ngModel)]="player.available" disabled>
         </td>
         <td>
-          <a class="btn btn-primary" [routerLink]="['/edit-gameavailability/', game.$key, player.id]">Edit</a>
+          <a class="btn btn-primary" [routerLink]="['/edit-gameavailability/', game.$key, player.id]">Change Status</a>
         </td>
       </tr>
     </tbody>

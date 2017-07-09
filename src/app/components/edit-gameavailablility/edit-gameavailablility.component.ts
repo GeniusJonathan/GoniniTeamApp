@@ -25,13 +25,14 @@ export class EditGameavailablilityComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
+    this.id2 = this.route.snapshot.params['id2'];
+    
     this.firebaseService.getGameDetails(this.id).subscribe(game => {
-      this.game = game.date + ": " + game.hometeam.name + " - " + game.awayteam.name
+      this.game = game.date + ": " + game.hometeam.name + " - " + game.awayteam.name;
     });
     this.firebaseService.getPlayerAvailability(this.id,this.id2).subscribe(data => {
       this.available = data.available;
       this.player = data.player;
-      console.log(data);
     }); 
   }
 

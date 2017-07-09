@@ -82,8 +82,8 @@ export class FirebaseService {
     return this.games.update(id, game);
   }
 
-  updatePlayerAvailability(value){
-    return this.available.update(value);
+  updatePlayerAvailability(value:boolean){
+    return this.available.update({ available: value });
   }
 
   deleteGame(id){
