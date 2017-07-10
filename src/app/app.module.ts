@@ -27,6 +27,8 @@ import { AddGameComponent } from './components/add-game/add-game.component';
 import { EditGameComponent } from './components/edit-game/edit-game.component';
 import { GameavailablilityComponent } from './components/gameavailablility/gameavailablility.component';
 import { EditGameavailablilityComponent } from './components/edit-gameavailablility/edit-gameavailablility.component';
+import { GamestatsComponent } from './components/gamestats/gamestats.component';
+import { EditGamestatsComponent } from './components/edit-gamestats/edit-gamestats.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
@@ -43,7 +45,9 @@ const appRoutes: Routes = [
   {path:'add-game', component:AddGameComponent},
   {path:'edit-game/:id', component:EditGameComponent},
   {path:'gameavailability/:id', component:GameavailablilityComponent},
-  {path:'edit-gameavailability/:id/:id2', component:EditGameavailablilityComponent}
+  {path:'edit-gameavailability/:id/:id2', component:EditGameavailablilityComponent},
+  {path:'gamestats/:id', component:GamestatsComponent},
+  {path:'edit-gamestats/:id/:id2', component:EditGamestatsComponent}
 ];
 
 @NgModule({
@@ -64,7 +68,9 @@ const appRoutes: Routes = [
     AddGameComponent,
     EditGameComponent,
     GameavailablilityComponent,
-    EditGameavailablilityComponent
+    EditGameavailablilityComponent,
+    GamestatsComponent,
+    EditGamestatsComponent
   ],
   imports: [
     BrowserModule,

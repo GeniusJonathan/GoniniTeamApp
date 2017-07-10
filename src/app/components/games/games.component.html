@@ -18,8 +18,15 @@
         Time
       </th>
       <th>
+        Score
+      </th>
+      <th>
+        Won
+      </th>
+      <th>
         Details
       </th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -38,13 +45,22 @@
         {{game.time}}
       </td>
       <td>
+        {{game.score}}
+      </td>
+      <td>
+        <input class="form-control" type="checkbox" [(ngModel)]="game.won" name="game.won" disabled>
+      </td>
+      <td>
         {{game.details}}
       </td>
       <td>
-        <a class="btn btn-primary" [routerLink]="['/edit-game/'+game.$key]" >Edit</a>
-        <a class="btn btn-warning" [routerLink]="['/game/'+game.$key]" >Details</a>
-        <a class="btn btn-warning" [routerLink]="['/gameavailability/'+game.$key]" >Availability</a>
-        <a (click)="onDeleteClick(game.$key)" class="btn btn-danger">Delete</a>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/edit-game/'+game.$key]" >Edit</a>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/game/'+game.$key]" >Details</a>
+        <a (click)="onDeleteClick(game.$key)" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+      <td>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/gameavailability/'+game.$key]" >Availability</a>
+        <a *ngIf="game.score != '00-00'" class="btn btn-success btn-sm" [routerLink]="['/gamestats/'+game.$key]" >Game Stats</a>
       </td>
     </tr>
   </tbody>

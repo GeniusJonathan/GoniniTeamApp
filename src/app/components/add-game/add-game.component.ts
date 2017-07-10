@@ -15,8 +15,11 @@ export class AddGameComponent implements OnInit {
   time: any;
   details: string = "";
   playeravailability:any[] = [];
+  playerstats:any[] = [];
   allTeams: any[];
   players:any[];
+  score: any = "00-00";
+  won:any = false;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -39,12 +42,23 @@ export class AddGameComponent implements OnInit {
   onAddSubmit(){ 
     let index  = 0;
     for(let item of AddGameComponent.subscribeData ){
-      let test ={
+      let playerstats ={
+        id: index,
+        player: item,
+        points: 0,
+        fouls:0,
+        freethrowmade: 0,
+        freethrowattempted: 0,
+        threepointmade:0,
+        details: ""
+      }
+      let playeravailability ={
         id: index,
         player: item,
         available:false
       }
-      this.playeravailability.push(test); 
+      this.playeravailability.push(playeravailability); 
+      this.playerstats.push(playerstats); 
       index++;
     }
     index = 0;
@@ -54,6 +68,9 @@ export class AddGameComponent implements OnInit {
       date : this.date,
       time : this.time,
       playeravailability: this.playeravailability,
+      playerstats: this.playerstats,
+      score: this.score,
+      won: this.won,
       details : this.details
     }
     this.firebaseService.addGame(game);

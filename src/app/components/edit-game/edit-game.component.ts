@@ -12,10 +12,11 @@ export class EditGameComponent implements OnInit {
   awayteam: any;
   date: any;
   time: any;
+  score: any;
+  won: any;
   details: string = "";
   id:any;
   allTeams: any[];
-  selectedValue: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -31,8 +32,8 @@ export class EditGameComponent implements OnInit {
       this.date = game.date;
       this.time = game.time;
       this.details = game.details;
-      this.selectedValue = game.hometeam.name;
-      console.log(game)
+      this.score = game.score;
+      this.won = game.won;
     });
 
     //Populate Home&Team SelectBox
@@ -47,10 +48,12 @@ export class EditGameComponent implements OnInit {
       awayteam : this.awayteam,
       date : this.date,
       time : this.time,
+      score : this.score,
+      won : this.won,
       details : this.details
     }
     this.firebaseService.updateGame(this.id, game);
-    this.router.navigate(['/game/'+ this.id]);
+    this.router.navigate(['/games/']);
   }
 
 }

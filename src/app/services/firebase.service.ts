@@ -11,6 +11,7 @@ export class FirebaseService {
   games: FirebaseListObservable<any[]>;
   game: FirebaseObjectObservable<any>;
   available : FirebaseObjectObservable<any>;
+  stats : FirebaseObjectObservable<any>;
 
   constructor(private af: AngularFireDatabase) { 
     this.players = this.af.list('/players') as FirebaseListObservable<Player[]>;
@@ -66,13 +67,20 @@ export class FirebaseService {
   getGames(){
     return this.games;
   }
+
   getGameDetails(id){
     this.game = this.af.object('/games/'+ id) as FirebaseObjectObservable<Game>;
     return this.game;
   }
+
   getPlayerAvailability(id,id2){
     this.available = this.af.object('/games/'+ id + '/playeravailability/' + id2) as FirebaseObjectObservable<PlayerAvailability>;
     return this.available;
+  }
+
+  getPlayerStats(id,id2){
+    this.stats = this.af.object('/games/'+ id + '/playerstats/' + id2) as FirebaseObjectObservable<PlayerStats>;
+    return this.stats;
   }
   addGame(game){
     let database = firebase.database().ref('games');
@@ -84,6 +92,10 @@ export class FirebaseService {
 
   updatePlayerAvailability(value:boolean){
     return this.available.update({ available: value });
+  }
+
+  updatePlayerStats(stats){
+    return this.stats.update(stats);
   }
 
   deleteGame(id){
@@ -119,5 +131,16 @@ interface PlayerAvailability{
   $key?: string;
   available?:string;
   player?: Player;
+}
+
+interface PlayerStats{
+  $key?: string;
+  id:number;
+  points?:number;
+  fouls?:number;
+  freethrowmade?:number;
+  freethrowattempted?:number;
+  threepointmade?:number;
+  details?:string;
 }
 

@@ -12,7 +12,6 @@ export class EditGameavailablilityComponent implements OnInit {
   time: any;
   available: any;
   player: any;
-  playername: any = "Jonathan";
 
   id:any;
   id2:any;

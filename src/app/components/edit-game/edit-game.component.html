@@ -1,9 +1,10 @@
-<div *ngIf="selectedValue && allTeams">
+<div *ngIf="allTeams">
   <a [routerLink]="['/games']">Back</a>
   <br>
   <h2 class="page-header">Edit Game</h2>
-  <div class="col-md-4 offset-md-8">
-    <form (submit)="onEditSubmit()">
+
+  <form (submit)="onEditSubmit()">
+    <div class="col-md-4">
       <div class="form-group">
         <label>Home Team</label>
         <input class="form-control" type="text" [(ngModel)]="hometeam.name" name="hometeam" disabled>
@@ -24,7 +25,22 @@
         <label>Details</label>
         <input class="form-control" type="text" [(ngModel)]="details" name="details" required>
       </div>
+    </div>
+    <div class="col-md-4 offset-md-4">
+      <div style="border:solid; margin:20px; padding:20px">
+        <p><b>Only Fill in when Game is over!</b></p>
+        <div class="form-group">
+          <label>Score</label>
+          <input class="form-control" type="text" [(ngModel)]="score" name="score" required>
+        </div>
+        <div class="form-group">
+          <label>Won</label>
+          <input class="form-control" type="checkbox" [(ngModel)]="won" name="won" required>
+        </div>
+      </div>
       <input type="submit" value="submit" class="btn btn-success">
-    </form>
-  </div>
+    </div>
+
+
+  </form>
 </div>

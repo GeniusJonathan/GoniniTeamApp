@@ -1,0 +1,60 @@
+<div *ngIf="game">
+  <a [routerLink]="['/games']">Go Back</a>
+  <h2>Game Stats</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Player
+        </th>
+        <th>
+          Points
+        </th>
+        <th>
+          FT-M
+        </th>
+        <th>
+          FT-A
+        </th>
+        <th>
+          3PT-M
+        </th>
+        <th>
+          Fouls
+        </th>
+        <th>
+          Details
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of game.playerstats">
+        <td>
+          {{player.player.firstname}} {{player.player.lastname}}
+        </td>
+        <td>
+          {{player.points}}
+        </td>
+        <td>
+          {{player.freethrowmade}}
+        </td>
+        <td>
+          {{player.freethrowattempted}}
+        </td>
+        <td>
+          {{player.threepointmade}}
+        </td>
+        <td>
+          {{player.fouls}}
+        </td>
+        <td>
+          {{player.details}}
+        </td>
+        <td>
+          <a class="btn btn-warning btn-sm" [routerLink]="['/edit-gamestats/', game.$key, player.id]">Edit Stats</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

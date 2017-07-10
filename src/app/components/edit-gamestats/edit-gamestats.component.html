@@ -1,0 +1,34 @@
+<div *ngIf="game">
+  <a [routerLink]="['/games']">Back</a>
+  <br>
+  <h2 class="page-header">Edit Player Stats</h2>
+  <div class="col-md-4 offset-md-8">
+    <form (submit)="onEditSubmit()">
+      <div class="form-group">
+        <label>Points</label>
+        <input class="form-control" type="number" [(ngModel)]="points" name="points" autofocus>
+      </div>
+      <div class="form-group">
+        <label>FT-M</label>
+        <input class="form-control" type="number" [(ngModel)]="freethrowmade" name="freethrowmade">
+      </div>
+      <div class="form-group">
+        <label>FT-A</label>
+        <input class="form-control" type="number" [(ngModel)]="freethrowattempted" name="freethrowattempted" required>
+      </div>
+      <div class="form-group">
+        <label>3PT-M</label>
+        <input class="form-control" type="number" [(ngModel)]="threepointmade" name="threepointmade" required>
+      </div>
+      <div class="form-group">
+        <label>Fouls</label>
+        <input class="form-control" type="number" [(ngModel)]="fouls" name="fouls" required>
+      </div>
+      <div class="form-group">
+        <label>Details</label>
+        <input class="form-control" type="text" [(ngModel)]="details" name="details" required>
+      </div>
+      <input type="submit" value="submit" class="btn btn-success">
+    </form>
+  </div>
+</div>
