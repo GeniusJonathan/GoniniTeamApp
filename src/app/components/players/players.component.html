@@ -23,9 +23,9 @@
         {{player.lastname}}
       </td>
       <td>
-        <a class="btn btn-primary" [routerLink]="['/edit-player/'+player.$key]" >Edit</a>
-        <a class="btn btn-warning" [routerLink]="['/player/'+player.$key]" >Details</a>
-        <a (click)="onDeleteClick(player.$key)" class="btn btn-danger">Delete</a>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/edit-player/'+player.$key]" >Edit</a>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/player/'+player.$key]" >Details</a>
+        <a (click)="onDeleteClick(player.$key)" class="btn btn-danger btn-sm">Delete</a>
       </td>
     </tr>
   </tbody>

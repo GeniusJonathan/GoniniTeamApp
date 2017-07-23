@@ -1,9 +1,6 @@
 <div *ngIf="game">
   <a [routerLink]="['/games']">Go Back</a>
   <h2>Game Availabiltiy</h2>
-  <p>
-    <a class="btn btn-success" [routerLink]="['/add-game']">Create New</a>
-  </p>
   <table class="table">
     <thead>
       <tr>
@@ -31,7 +28,7 @@
           <input class="form-control" type="checkbox" [(ngModel)]="player.available" disabled>
         </td>
         <td>
-          <a class="btn btn-primary" [routerLink]="['/edit-gameavailability/', game.$key, player.id]">Change Status</a>
+          <a class="btn btn-primary btn-sm" [routerLink]="['/edit-gameavailability/', game.$key, player.id]">Change Status</a>
         </td>
       </tr>
     </tbody>
