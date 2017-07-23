@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Router} from '@angular/router';
 
 @Component({
@@ -11,6 +12,7 @@ export class GamesComponent implements OnInit {
   games:any;  
 
   constructor(
+    public afAuth: AngularFireAuth,
     private firebaseService:FirebaseService,
     private router: Router
   ) { }

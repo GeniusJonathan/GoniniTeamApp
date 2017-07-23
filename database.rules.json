@@ -1,6 +1,14 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    ".read": true,
+    ".write": "auth != null",
+    "games": {
+      "$each_game": {
+        "playeravailability": {
+          ".read": true,
+          ".write": true
+        }
+      }
+    }
   }
 }

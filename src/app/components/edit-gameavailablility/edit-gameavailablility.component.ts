@@ -12,6 +12,7 @@ export class EditGameavailablilityComponent implements OnInit {
   time: any;
   available: any;
   player: any;
+  playername :any;
 
   id:any;
   id2:any;
@@ -32,6 +33,7 @@ export class EditGameavailablilityComponent implements OnInit {
     this.firebaseService.getPlayerAvailability(this.id,this.id2).subscribe(data => {
       this.available = data.available;
       this.player = data.player;
+      this.playername = data.player.firstname + " " + data.player.lastname;
     }); 
   }
 

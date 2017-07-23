@@ -1,7 +1,138 @@
-<div class="jumbotron text-center">
+<h2>Leaders</h2>
+<div class="row">
+  <div class="col-sm-12 col-md-3 col-lg-2">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Points</h3>
+      </div>
+      <div class="panel-body">
+        <strong>{{leaderPoints}}</strong><br> <span style="font-size:250%;">{{points}} </span> Points
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-3 col-lg-2">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">FT-M</h3>
+      </div>
+      <div class="panel-body">
+        <strong>{{leaderFreethrowmade}}</strong><br> <span style="font-size:250%;">{{freethrowmade}} </span> FT-M
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-3 col-lg-2">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">FT-A</h3>
+      </div>
+      <div class="panel-body">
+        <strong>{{leaderFreethrowattempted}}</strong><br> <span style="font-size:250%;">{{freethrowattempted}} </span> FT-A
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-3 col-lg-2">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">3PT-M</h3>
+      </div>
+      <div class="panel-body">
+        <strong>{{leaderThreepointmade}}</strong><br> <span style="font-size:250%;">{{threepointmade}} </span> 3PT-M
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-3 col-lg-2">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Fouls</h3>
+      </div>
+      <div class="panel-body">
+        <strong>{{leaderFouls}}</strong><br> <span style="font-size:250%;">{{fouls}} </span> Fouls
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-3 col-lg-2"></div>
+</div>
+
+<h2>Standings</h2>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Wins</h3>
+      </div>
+      <div class="panel-body">
+        <span style="font-size:250%;">{{wins}} </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Losses</h3>
+      </div>
+      <div class="panel-body">
+        <span style="font-size:250%;">{{losses}} </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Statistics</h2>
+<div style="overflow:auto;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Player
+        </th>
+        <th>
+          Points
+        </th>
+        <th>
+          FT-M
+        </th>
+        <th>
+          FT-A
+        </th>
+        <th>
+          3PT-M
+        </th>
+        <th>
+          Fouls
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of statistics">
+        <td>
+          {{player.player.firstname}} {{player.player.lastname}}
+        </td>
+        <td>
+          {{player.points}}
+        </td>
+        <td>
+          {{player.ftm}}
+        </td>
+        <td>
+          {{player.fta}}
+        </td>
+        <td>
+          {{player.tpm}}
+        </td>
+        <td>
+          {{player.fouls}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- <div class="jumbotron text-center">
   <div class="container">
     <h1>Gonini Team App</h1>
     <p>Access the hottest properties available</p>
     <a (click)="login()"><img src="/assets/img/google.png" alt=""></a>
   </div>
-</div>
+</div> -->

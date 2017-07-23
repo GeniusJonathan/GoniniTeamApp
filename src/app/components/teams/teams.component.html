@@ -1,44 +1,46 @@
 <h2>All Teams</h2>
 <p>
-    <a class="btn btn-success" [routerLink]="['/add-team']">Create New</a>
+  <a class="btn btn-success" [routerLink]="['/add-team']">Create New</a>
 </p>
-<table class="table">
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Address
-      </th>
-      <th>
-        City
-      </th>
-      <th>
-        Postal Code
-      </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let team of teams">
-      <td>
-        {{team.name}}
-      </td>
-      <td>
-        {{team.address}}
-      </td>
-      <td>
-        {{team.city}}
-      </td>
-      <td>
-        {{team.postalcode}}
-      </td>
-      <td>
-        <a class="btn btn-primary" [routerLink]="['/edit-team/'+team.$key]" >Edit</a>
-        <a class="btn btn-warning" [routerLink]="['/team/'+team.$key]" >Details</a>
-        <a (click)="onDeleteClick(team.$key)" class="btn btn-danger">Delete</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div style="overflow:auto;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Address
+        </th>
+        <th>
+          City
+        </th>
+        <th>
+          Postal Code
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of teams">
+        <td>
+          {{team.name}}
+        </td>
+        <td>
+          {{team.address}}
+        </td>
+        <td>
+          {{team.city}}
+        </td>
+        <td>
+          {{team.postalcode}}
+        </td>
+        <td>
+          <a class="btn btn-primary" [routerLink]="['/edit-team/'+team.$key]">Edit</a>
+          <a class="btn btn-warning" [routerLink]="['/team/'+team.$key]">Details</a>
+          <a (click)="onDeleteClick(team.$key)" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
