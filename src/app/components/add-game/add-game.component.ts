@@ -55,7 +55,7 @@ export class AddGameComponent implements OnInit {
       let playeravailability ={
         id: index,
         player: item,
-        available:false
+        available:"Unknown"
       }
       this.playeravailability.push(playeravailability); 
       this.playerstats.push(playerstats); 

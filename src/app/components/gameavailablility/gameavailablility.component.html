@@ -17,15 +17,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let player of game.playeravailability">
+      <tr *ngFor="let player of game.playeravailability;">
         <td>
           {{game.date}}: {{game.hometeam.name}} - {{game.awayteam.name}}
         </td>
         <td>
           {{player.player.firstname}} {{player.player.lastname}}
         </td>
-        <td>
-          <input class="form-control" type="checkbox" [(ngModel)]="player.available" disabled>
+        <td [ngClass]="{'success': player.available == 'Going', 'active': player.available == 'Unknown', 'danger': player.available == 'Not Available'}">
+          <b>{{player.available}}</b>
         </td>
         <td>
           <a class="btn btn-primary btn-sm" [routerLink]="['/edit-gameavailability/', game.$key, player.id]">Change Status</a>

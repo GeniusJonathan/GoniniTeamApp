@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
-import { Router, ActivatedRoute, Params} from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import * as firebase from 'firebase';
 
 @Component({
@@ -22,14 +22,18 @@ export class TeamComponent implements OnInit {
     //Get Team details with id
     this.id = this.route.snapshot.params['id'];
 
-    this.firebaseService.getTeamDetails(this.id).subscribe(team =>{
+    this.firebaseService.getTeamDetails(this.id).subscribe(team => {
       this.team = team;
     });
   }
 
-  onDeleteClick(){
-    this.firebaseService.deleteTeam(this.id);
-    this.router.navigate(['/teams']);
+  onDeleteClick() {
+    let result = confirm("Are you sure you want to delete?");
+    if (result) {
+      //Logic to delete the item
+      this.firebaseService.deleteTeam(this.id);
+      this.router.navigate(['/teams']);
+    }
   }
 
 }

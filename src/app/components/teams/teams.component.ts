@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teams',
@@ -8,21 +8,26 @@ import { Router} from '@angular/router';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
-  teams:any;
+  teams: any;
 
   constructor(
-    private firebaseService:FirebaseService,
+    private firebaseService: FirebaseService,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.firebaseService.getTeams().subscribe(teams => {
-       this.teams = teams;
-     });
+      this.teams = teams;
+    });
   }
-  onDeleteClick(id){
-    this.firebaseService.deleteTeam(id);
-    this.router.navigate(['/teams']);
+
+  onDeleteClick(id) {
+    let result = confirm("Are you sure you want to delete?");
+    if (result) {
+      //Logic to delete the item
+      this.firebaseService.deleteTeam(id);
+      this.router.navigate(['/teams']);
+    }
   }
 
 }

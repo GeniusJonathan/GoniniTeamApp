@@ -10,9 +10,9 @@ import { Router, ActivatedRoute, Params} from '@angular/router';
 export class EditTeamComponent implements OnInit {
   id:any;
   name:any;
-  address:any;  
-  city:any;
-  postalcode:any;  
+  address:any ="";  
+  city:any ="";
+  postalcode:any ="";  
 
   constructor(
     private firebaseService: FirebaseService,

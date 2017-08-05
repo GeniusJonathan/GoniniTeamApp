@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class AddTeamComponent implements OnInit {
   name: any;
-  address: any;
-  city: any;
-  postalcode: any;
+  address: any = "";
+  city: any = "";
+  postalcode: any = "";
 
   constructor(
     private firebaseService: FirebaseService,

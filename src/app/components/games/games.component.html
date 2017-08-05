@@ -42,11 +42,8 @@
         <td>
           {{game.time}}
         </td>
-        <td>
+        <td [ngClass]="{'success': game.won, 'danger': !game.won && game.score != ''}">
           {{game.score}}
-        </td>
-        <td>
-          <input class="form-control" type="checkbox" [(ngModel)]="game.won" name="game.won" disabled>
         </td>
         <td>
           <a *ngIf="afAuth.authState | async" class="btn btn-primary btn-sm" [routerLink]="['/edit-game/'+game.$key]">Edit</a>
