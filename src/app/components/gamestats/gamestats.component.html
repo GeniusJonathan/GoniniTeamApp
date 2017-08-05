@@ -53,7 +53,7 @@
             {{player.details}}
           </td>
           <td>
-            <a class="btn btn-warning btn-sm" [routerLink]="['/edit-gamestats/', game.$key, player.id]">Edit Stats</a>
+            <a *ngIf="afAuth.authState | async" class="btn btn-warning btn-sm" [routerLink]="['/edit-gamestats/', game.$key, player.id]">Edit Stats</a>
           </td>
         </tr>
       </tbody>

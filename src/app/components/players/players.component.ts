@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { Router} from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-players',
@@ -11,6 +12,7 @@ export class PlayersComponent implements OnInit {
   players:any;
 
   constructor(
+    public afAuth: AngularFireAuth,
     private firebaseService:FirebaseService,
     private router: Router
   ) { }

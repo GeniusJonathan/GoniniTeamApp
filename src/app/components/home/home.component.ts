@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
     for (let game of this.games) {
       var index = 0;
 
-      if (game.score != "00-00") {
+      if (game.score != "") {
         if (game.won) {
           this.wins += 1;
         } else {

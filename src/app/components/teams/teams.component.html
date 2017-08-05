@@ -36,9 +36,9 @@
           {{team.postalcode}}
         </td>
         <td>
-          <a class="btn btn-primary" [routerLink]="['/edit-team/'+team.$key]">Edit</a>
-          <a class="btn btn-warning" [routerLink]="['/team/'+team.$key]">Details</a>
-          <a (click)="onDeleteClick(team.$key)" class="btn btn-danger">Delete</a>
+          <a *ngIf="afAuth.authState | async" class="btn btn-primary" [routerLink]="['/edit-team/'+team.$key]">Edit</a>
+          <!-- <a class="btn btn-warning" [routerLink]="['/team/'+team.$key]">Details</a> -->
+          <a *ngIf="afAuth.authState | async" (click)="onDeleteClick(team.$key)" class="btn btn-danger">Delete</a>
         </td>
       </tr>
     </tbody>

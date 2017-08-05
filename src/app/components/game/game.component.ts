@@ -28,6 +28,7 @@ export class GameComponent implements OnInit {
   }
 
   onDeleteClick(){
+    var result = confirm("Are you sure?");
     this.firebaseService.deleteGame(this.id);
     this.router.navigate(['/games']);
   }
