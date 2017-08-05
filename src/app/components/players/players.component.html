@@ -1,6 +1,6 @@
 <h2>Team Roster</h2>
 <p>
-    <a class="btn btn-success" [routerLink]="['/add-player']">Create New</a>
+    <a *ngIf="afAuth.authState | async" class="btn btn-success" [routerLink]="['/add-player']">Create New</a>
 </p>
 <table class="table">
   <thead>
