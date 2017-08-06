@@ -11,6 +11,7 @@ import * as firebase from 'firebase';
 export class GameavailablilityComponent implements OnInit {
   id: any;
   game: any;
+  players: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -21,9 +22,13 @@ export class GameavailablilityComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
+    this.firebaseService.getPlayers().subscribe(players => {
+       this.players = players;
+     });
+
     this.firebaseService.getGameDetails(this.id).subscribe(game =>{
       this.game = game;
     });
-  }
 
+  }
 }

@@ -1,4 +1,4 @@
-<div *ngIf="game">
+<div *ngIf="game && players">
   <a [routerLink]="['/games']">Go Back</a>
   <h2>Game Stats</h2>
   <div style="overflow:auto;">
@@ -32,7 +32,7 @@
       <tbody>
         <tr *ngFor="let player of game.playerstats">
           <td>
-            {{player.player.firstname}} {{player.player.lastname}}
+            {{players[player.id].firstname}} {{players[player.id].lastname}}
           </td>
           <td>
             {{player.points}}

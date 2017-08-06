@@ -11,6 +11,10 @@ import * as firebase from 'firebase';
 export class GameComponent implements OnInit {
   id: any;
   game: any;
+  teams: any;
+  address: any;
+  city: any;
+  postalcode: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -21,9 +25,14 @@ export class GameComponent implements OnInit {
   ngOnInit() {
     //Get Game details with id
     this.id = this.route.snapshot.params['id'];
+    
+    this.firebaseService.getTeams().subscribe(teams => {
+      this.teams = teams;
+    })
 
     this.firebaseService.getGameDetails(this.id).subscribe(game =>{
       this.game = game;
+      this.getTeamAddressByName(game.hometeam.name);
     });
   }
 
@@ -31,6 +40,21 @@ export class GameComponent implements OnInit {
     var result = confirm("Are you sure?");
     this.firebaseService.deleteGame(this.id);
     this.router.navigate(['/games']);
+  }
+
+  testmethod(){
+    console.log("hallo");
+  }
+
+  getTeamAddressByName(teamname){
+    for (let team of this.teams){
+      if(team.name == teamname ){
+        this.address = team.address;
+        this.city = team.city;
+        this.postalcode = team.postalcode;
+        return;
+      }
+    }
   }
   
 }

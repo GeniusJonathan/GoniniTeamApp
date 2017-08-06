@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   games: any;
+  playersdb: any;
   players: any = [];
   playerstats: any = [];
   statistics: any = [];
@@ -40,6 +41,10 @@ export class HomeComponent implements OnInit {
     this.firebaseService.getGames().subscribe(games => {
       this.games = games;
       this.loadData();
+    });
+
+    this.firebaseService.getPlayers().subscribe(players => {
+       this.playersdb = players;
     });
   }
 
@@ -70,7 +75,7 @@ export class HomeComponent implements OnInit {
           }
         } else {
           this.statistics[index] = {
-            player: player.player,
+            playerid: player.id,
             points: player.points,
             ftm: player.freethrowmade,
             fta: player.freethrowattempted,
@@ -102,7 +107,7 @@ export class HomeComponent implements OnInit {
         player = i;
       }
     }
-    this.leaderPoints = this.statistics[player].player.firstname + " " + this.statistics[player].player.lastname;
+    this.leaderPoints = this.statistics[player].playerid;
     this.points = this.statistics[player].points;
     return this.statistics[player];
   }
@@ -117,7 +122,7 @@ export class HomeComponent implements OnInit {
         player = i;
       }
     }
-    this.leaderFreethrowmade = this.statistics[player].player.firstname + " " + this.statistics[player].player.lastname;
+    this.leaderFreethrowmade = this.statistics[player].playerid;
     this.freethrowmade = this.statistics[player].ftm;
     return this.statistics[player];
   }
@@ -132,7 +137,7 @@ export class HomeComponent implements OnInit {
         player = i;
       }
     }
-    this.leaderFreethrowattempted = this.statistics[player].player.firstname + " " + this.statistics[player].player.lastname;
+    this.leaderFreethrowattempted = this.statistics[player].playerid;
     this.freethrowattempted = this.statistics[player].fta;
     return this.statistics[player];
   }
@@ -147,7 +152,7 @@ export class HomeComponent implements OnInit {
         player = i;
       }
     }
-    this.leaderThreepointmade = this.statistics[player].player.firstname + " " + this.statistics[player].player.lastname;
+    this.leaderThreepointmade = this.statistics[player].playerid;
     this.threepointmade = this.statistics[player].tpm;
     return this.statistics[player];
   }
@@ -162,7 +167,7 @@ export class HomeComponent implements OnInit {
         player = i;
       }
     }
-    this.leaderFouls = this.statistics[player].player.firstname + " " + this.statistics[player].player.lastname;
+    this.leaderFouls = this.statistics[player].playerid;
     this.fouls = this.statistics[player].fouls;
     return this.statistics[player];
   }

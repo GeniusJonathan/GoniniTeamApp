@@ -1,4 +1,4 @@
-<div *ngIf="game">
+<div *ngIf="game && players">
   <a [routerLink]="['/games']">Back</a>
   <br>
   <h2 class="page-header">Edit Availability</h2>
@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
       <label>Player</label>
-      <input class="form-control" type="text" [(ngModel)]="playername" name="playername" disabled>
+      <input class="form-control" type="text" value="{{players[player].firstname}} {{players[player].lastname}}" name="playername" disabled>
     </div>
     <div class="form-group">
       <label>Available</label>

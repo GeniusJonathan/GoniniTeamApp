@@ -12,6 +12,7 @@ import * as firebase from 'firebase';
 export class GamestatsComponent implements OnInit {
   id: any;
   game: any;
+  players: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -26,6 +27,10 @@ export class GamestatsComponent implements OnInit {
     this.firebaseService.getGameDetails(this.id).subscribe(game =>{
       this.game = game;
     });
+
+    this.firebaseService.getPlayers().subscribe(players => {
+       this.players = players;
+     });
   }
 
 }

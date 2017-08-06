@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, Params} from '@angular/router';
 export class EditGameavailablilityComponent implements OnInit {
   game: any;
   time: any;
+  players: any;
   available: any;
   player: any;
   playername :any;
@@ -30,11 +31,15 @@ export class EditGameavailablilityComponent implements OnInit {
     this.firebaseService.getGameDetails(this.id).subscribe(game => {
       this.game = game.date + ": " + game.hometeam.name + " - " + game.awayteam.name;
     });
+
     this.firebaseService.getPlayerAvailability(this.id,this.id2).subscribe(data => {
       this.available = data.available;
-      this.player = data.player;
-      this.playername = data.player.firstname + " " + data.player.lastname;
+      this.player = data.id;
     }); 
+
+    this.firebaseService.getPlayers().subscribe(players => {
+       this.players = players;
+    });
   }
 
   onEditSubmit(){
